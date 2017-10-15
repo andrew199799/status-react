@@ -132,14 +132,25 @@
                       :margin-bottom 4
                       :margin-right  2}})
 
-(def popular-list-chat-action
-  {:background-color styles/color-light-blue7
+(defstyle chat-button-container
+  {:background-color styles/color-blue4-transparent
    :flex-direction   :row
-   :border-radius    5
-   :padding          4})
+   :padding          10
+   :padding-right    8
+   :ios              {:border-radius 8}
+   :android          {:border-radius 4}})
 
-(def popular-list-chat-action-text
-  {:color styles/color-dark-blue-4})
+;; NOTE(goranjovic): Another hacky use of defstyle to get
+;; platform specific styles in place where they belong
+(defstyle chat-button-text-case
+  {:ios     {:uppercase? false}
+   :android {:uppercase? true}})
+
+(defstyle chat-button-text
+  {:color   styles/color-blue4
+   :ios     {:font-size 15}
+   :android {:font-size   14
+             :font-weight :bold}})
 
 ;; discover_recent
 
